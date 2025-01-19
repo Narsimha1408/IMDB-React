@@ -1,0 +1,11 @@
+.movie-card{
+    border: 1px solid;
+    padding: 4px;
+    width: 145px;
+    /* height: 187px; */
+    margin:10px
+}
+
+.movie-card img{
+    max-width: 100%;
+}
