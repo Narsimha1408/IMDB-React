@@ -53,7 +53,7 @@ const MovieApp=()=>{
             <Routes>
                 <Route path="/" element={<MovieList/>}/>
                 <Route path="/movie-detail/:movieId" element={<MovieDetail/>}/>
-                <Route path="/movie-detail/:movieId" element={<AddMovie/>}/>
+                <Route path="/add-movie" element={<AddMovie/>}/>
                 
             </Routes>
         

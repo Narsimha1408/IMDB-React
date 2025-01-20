@@ -1,6 +1,6 @@
 import MovieCard from "./MovieCard.js";
 import Heading from "./Heading.js"
-import { use, useEffect, useState } from "react";
+import { use, useEffect, useState, useMemo } from "react";
 import "./movie-list.css"
 import React from 'react';
 import PageNation from "./PageNation.js"
@@ -16,6 +16,13 @@ const MovieList = () =>{
 
     const [movie, setMovie]=useState([])
     const [moviesInWatchList, updateWatchList]=useState([])
+
+    //momoizing the computation value to avoid re rendering except for new movies renders on the page
+    const popularMovieCount=useMemo(()=>movie.filter((eachMovie)=>{
+        console.log("computed")
+        return eachMovie.popularity>1000
+    }),[movie])
+
     //console.log(movie)
     useEffect(()=>{
         fetchMovies(1)
@@ -26,10 +33,11 @@ const MovieList = () =>{
         <>
         <Heading></Heading>
         <h3>WatchList : {moviesInWatchList.length}</h3>
+        <p>Popular Movies ({">"}1000) : {popularMovieCount.length}</p>
         <div className="movie-list">
             {movie.map((eachMovie)=>
             (
-                    <MovieCard movie={eachMovie} updatedWatchList={updateWatchList}></MovieCard>
+                    <MovieCard movie={eachMovie} updatedWatchList={updateWatchList} moviesInWatchList={moviesInWatchList}></MovieCard>
             )
             )} 
         </div>
