@@ -7,6 +7,7 @@ const Headers=()=>{
             <Link to="/"> Movie List </Link>
             {/* <Link to="/movie-detail"> Movie Detail </Link> */}
             <Link to="/add-movie"> Add Movie </Link>
+            <Link to="/favourites">Favourite movies</Link>
             
             
         </div>

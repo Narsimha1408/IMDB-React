@@ -41,3 +41,23 @@ code {
   background-color: blue;
   color: white;
  }
+
+
+ .favourite-wrapper{
+  display:flex;
+ }
+ .favourite-wrapper .section-left{
+  flex-basis: 30%;
+  background-color: cornsilk;
+ }
+ .favourite-wrapper .section-right{
+  flex-grow: 1;
+  
+ }
+ .favourite-wrapper table{
+  border-collapse: collapse;
+ }
+ .favourite-wrapper .section-right table th, .favourite-wrapper .section-right table td{
+  border: 1px solid #ccc;
+  padding:5px
+ }

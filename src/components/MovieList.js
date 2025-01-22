@@ -15,11 +15,14 @@ const MovieList = () =>{
     }
 
     const [movie, setMovie]=useState([])
-    const [moviesInWatchList, updateWatchList]=useState([])
+    const [moviesInWatchList, updateWatchList]=useState(()=>{
+        const favouriteMoviesData=localStorage.getItem("watchlist") || [];
+        return JSON.parse(favouriteMoviesData)
+    })
 
     //momoizing the computation value to avoid re rendering except for new movies renders on the page
     const popularMovieCount=useMemo(()=>movie.filter((eachMovie)=>{
-        console.log("computed")
+        // console.log("computed")
         return eachMovie.popularity>1000
     }),[movie])
 

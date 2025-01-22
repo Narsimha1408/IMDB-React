@@ -5,6 +5,7 @@ import MovieList from "./MovieList.js"
 import MovieDetail from "./MovieDetail.js"
 import AddMovie from "./AddMovie.js"
 import Headers from "./Headers"
+import MovieFavourites from "./MovieFavourites.js"
 
 // const router = createBrowserRouter([
 //     {
@@ -54,6 +55,7 @@ const MovieApp=()=>{
                 <Route path="/" element={<MovieList/>}/>
                 <Route path="/movie-detail/:movieId" element={<MovieDetail/>}/>
                 <Route path="/add-movie" element={<AddMovie/>}/>
+                <Route path="/favourites" element={<MovieFavourites/>}/>
                 
             </Routes>
         

@@ -4,16 +4,19 @@ import React from 'react';
 // import MovieList from "./MovieList"
 const MovieCard=({movie, updatedWatchList, moviesInWatchList})=>{
 
-    const isMovieAdded=moviesInWatchList.find((watchListmovie) => watchListmovie == movie.id)
+    const isMovieAdded=moviesInWatchList.find((watchListmovie) => watchListmovie.id == movie.id)
     const OnaddingWatchList=(e)=>{
-        const newMovieId=e.target.dataset.id
-        if(moviesInWatchList.includes(newMovieId)){
-            let newWatchList=moviesInWatchList.filter((movieId)=> movieId != newMovieId)
+        // const newMovieId=e.target.dataset.id
+        if(moviesInWatchList.includes(movie)){
+            let newWatchList=moviesInWatchList.filter((eachMovie)=> eachMovie != movie)
             updatedWatchList(newWatchList)
+            localStorage.setItem("watchlist",JSON.stringify(newWatchList))
         }
         else{
             updatedWatchList((previousList)=>{
-                return [...previousList,newMovieId]
+                const watchlist=[...previousList,movie]
+                localStorage.setItem("watchlist",JSON.stringify(watchlist))
+                return [...previousList,movie]
             })
         }
 
