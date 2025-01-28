@@ -16,7 +16,7 @@ const MovieList = () =>{
 
     const [movie, setMovie]=useState([])
     const [moviesInWatchList, updateWatchList]=useState(()=>{
-        const favouriteMoviesData=localStorage.getItem("watchlist") || [];
+        const favouriteMoviesData=localStorage.getItem("watchlist") || "[]";
         return JSON.parse(favouriteMoviesData)
     })
 

@@ -48,7 +48,8 @@ code {
  }
  .favourite-wrapper .section-left{
   flex-basis: 30%;
-  background-color: cornsilk;
+  display: flex;
+  justify-content: flex-end;
  }
  .favourite-wrapper .section-right{
   flex-grow: 1;
@@ -61,3 +62,25 @@ code {
   border: 1px solid #ccc;
   padding:5px
  }
+ .genre-wrapper {
+  display: flex;
+  width: 200px;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 15px;
+}
+
+.genre-wrapper .genre {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  background-color: #ccc;
+  padding: 5px 15px;
+  margin: 1px;
+  cursor: pointer;
+}
+
+.genre-wrapper .genre.selected{
+  background-color: blue;
+  color:white
+}
