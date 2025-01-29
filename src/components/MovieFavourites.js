@@ -71,10 +71,21 @@ const MovieFavourites=()=>{
                 //checking if we clicked on ASC or DES 
                 return sortingType == "ASC" ? movie1.popularity - movie2.popularity : movie2.popularity - movie1.popularity
             }
-        )
+          )
         })
-
     }
+
+    //deleting the movie and setting the local storage
+    const handleMovieDeletion = (movieId) => (e) => {
+        setFavouriteMovies((prevFav)=>{
+            const movieIdx=prevFav.findIndex(fav => fav.id == movieId);
+            const finalFav=[...favouriteMoviesList]
+            finalFav.splice(movieIdx,1);
+            localStorage.setItem("watchlist",JSON.stringify(finalFav))
+            return finalFav
+        })
+    }
+
 
     return(
         <div>
@@ -119,7 +130,7 @@ const MovieFavourites=()=>{
                                     <td>{genreids[favouriteMovie.genre_ids[0]]}</td>
                                     <td>{favouriteMovie.popularity}</td>
                                     <td>{favouriteMovie.vote_average}</td>
-                                    <td><button>Delete</button></td>
+                                    <td><button onClick={handleMovieDeletion(favouriteMovie.id)}>Delete</button></td>
                                 </tr>
                             )}
                         </tbody>
